@@ -8,10 +8,30 @@ const algidPathTable =
 	dilithium2_n3_v1: '../kernel/n3_v1/wasmFile/dilithium2.js',
 	dilithium3_n3_v1: '../kernel/n3_v1/wasmFile/dilithium3.js',
 	dilithium5_n3_v1: '../kernel/n3_v1/wasmFile/dilithium5.js',
-	dilithium2R_n3_v1: '../kernel/n3_v1/wasmFile/dilithium2-R.js',
-	dilithium3R_n3_v1: '../kernel/n3_v1/wasmFile/dilithium3-R.js',
-	dilithium5R_n3_v1: '../kernel/n3_v1/wasmFile/dilithium5-R.js',
+
+	dilithium2_AES_n3_v1: '../kernel/n3_v1/wasmFile/dilithium2-AES.js',
+	dilithium3_AES_n3_v1: '../kernel/n3_v1/wasmFile/dilithium2-AES.js',
+	dilithium5_AES_n3_v1: '../kernel/n3_v1/wasmFile/dilithium2-AES.js',
+
+	dilithium2_R_n3_v1: '../kernel/n3_v1/wasmFile/dilithium2-R.js',
+	dilithium3_R_n3_v1: '../kernel/n3_v1/wasmFile/dilithium3-R.js',
+	dilithium5_R_n3_v1: '../kernel/n3_v1/wasmFile/dilithium5-R.js',
+
+	dilithium2_AES_R_n3_v1: '../kernel/n3_v1/wasmFile/dilithium2-AES-R.js',
+	dilithium3_AES_R_n3_v1: '../kernel/n3_v1/wasmFile/dilithium2-AES-R.js',
+	dilithium5_AES_R_n3_v1: '../kernel/n3_v1/wasmFile/dilithium2-AES-R.js',
 };
+
+const saltRandomMode = 
+[
+	'dilithium2_R_n3_v1',
+	'dilithium3_R_n3_v1',
+	'dilithium5_R_n3_v1',
+	'dilithium2_AES_R_n3_v1',
+	'dilithium3_AES_R_n3_v1',
+	'dilithium5_AES_R_n3_v1'
+]
+
 const kernelTable = {};
 
 function api(kernel, algid)
@@ -161,7 +181,7 @@ function api(kernel, algid)
 			wSk.freeSafe();
 			return pk;
 		},
-		sign: (['dilithium2R_n3_v1', 'dilithium3R_n3_v1', 'dilithium5R_n3_v1'].includes(algid)) ? signR : sign,
+		sign: (saltRandomMode.includes(algid)) ? signR : sign,
 		verify(signMsg, message, pk) 
 		{
 			if(typeof message === 'string')

@@ -6,7 +6,7 @@
 
 #ifdef DILITHIUM_USE_AES
 
-#include "aes256ctr.h"
+#include "aes/aes256ctr.h"
 #include "fips202.h"
 
 typedef aes256ctr_ctx stream128_state;

@@ -1,10 +1,10 @@
-const { getKernel, util, getKernelNameList } = require('../index');
+const { getKernel, util, getKernelNameList } = require('../../index');
 
 console.log(getKernelNameList);
 
 (async () =>
 {
-	const dilithium = await getKernel('dilithium5_n3_v1');
+	const dilithium = await getKernel('dilithium2_R_n3_v1');
 	if(!dilithium) 
 	{
 		return console.log('getKernel fail');
@@ -45,6 +45,9 @@ console.log(getKernelNameList);
 	console.log(util.uint8ArrayEqual(key.sk, key2.sk));
 
 	console.log(`------------------ const sign eq ------------------`);
-	let sign2 = dilithium.sign(text, key.sk);
-	console.log("sign1 === sign2 : ", util.uint8ArrayEqual(sign, sign2));
+	let constSalt = util.randomBytes(dilithium.signSaltByte);
+	let constSign1 = dilithium.sign(text, key.sk, constSalt);
+	let constSign2 = dilithium.sign(text, key.sk, constSalt);
+	console.log("constSign1 === constSign2 : ", util.uint8ArrayEqual(constSign1, constSign2));
+	console.log("randomSign1 === constSign2 : ", util.uint8ArrayEqual(sign, constSign2));
 })();

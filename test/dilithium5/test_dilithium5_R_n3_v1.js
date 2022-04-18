@@ -1,10 +1,10 @@
-const { getKernel, util, getKernelNameList } = require('../index');
+const { getKernel, util, getKernelNameList } = require('../../index');
 
 console.log(getKernelNameList);
 
 (async () =>
 {
-	const dilithium = await getKernel('dilithium2R_n3_v1');
+	const dilithium = await getKernel('dilithium5_R_n3_v1');
 	if(!dilithium) 
 	{
 		return console.log('getKernel fail');

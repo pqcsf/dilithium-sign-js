@@ -90,7 +90,7 @@ bool dilithiumPublicKeyCreate(const uint8_t *sk, uint8_t *pk)
 {
 	uint8_t seedbuf[2*SEEDBYTES + 3*CRHBYTES];
 	uint8_t *tr;
-	const uint8_t *rho, *key;
+	uint8_t *rho, *key;
 	polyvecl mat[K];
 	polyvecl s1, s1hat;
 	polyveck s2, t1, t0;

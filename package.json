@@ -1,16 +1,22 @@
 {
   "name": "dilithium-sign",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "The JS module of the post-quantum digital signature algorithm (Dilithium).",
   "main": "index.js",
   "scripts": {
     "bulid-dilithium2-n3-v1": "emcc ./kernel/n3_v1/wasmapi.cc ./kernel/n3_v1/dilithium/*.c -o ./kernel/n3_v1/wasmFile/dilithium2.js -D DILITHIUM_MODE=2",
 	"bulid-dilithium3-n3-v1": "emcc ./kernel/n3_v1/wasmapi.cc ./kernel/n3_v1/dilithium/*.c -o ./kernel/n3_v1/wasmFile/dilithium3.js -D DILITHIUM_MODE=3",
 	"bulid-dilithium5-n3-v1": "emcc ./kernel/n3_v1/wasmapi.cc ./kernel/n3_v1/dilithium/*.c -o ./kernel/n3_v1/wasmFile/dilithium5.js -D DILITHIUM_MODE=5",
-	"bulid-dilithium2R-n3-v1": "emcc ./kernel/n3_v1/wasmapi.cc ./kernel/n3_v1/dilithium/*.c -o ./kernel/n3_v1/wasmFile/dilithium2-R.js -D DILITHIUM_MODE=2 -D DILITHIUM_RANDOMIZED_SIGNING=1",
-	"bulid-dilithium3R-n3-v1": "emcc ./kernel/n3_v1/wasmapi.cc ./kernel/n3_v1/dilithium/*.c -o ./kernel/n3_v1/wasmFile/dilithium3-R.js -D DILITHIUM_MODE=3 -D DILITHIUM_RANDOMIZED_SIGNING=1",
-	"bulid-dilithium5R-n3-v1": "emcc ./kernel/n3_v1/wasmapi.cc ./kernel/n3_v1/dilithium/*.c -o ./kernel/n3_v1/wasmFile/dilithium5-R.js -D DILITHIUM_MODE=5 -D DILITHIUM_RANDOMIZED_SIGNING=1",
-	"bulid-all": "npm run bulid-dilithium2-n3-v1 && npm run bulid-dilithium3-n3-v1 && npm run bulid-dilithium5-n3-v1 && npm run bulid-dilithium2R-n3-v1 && npm run bulid-dilithium3R-n3-v1 && npm run bulid-dilithium5R-n3-v1"
+	"bulid-dilithium2-AES-n3-v1": "emcc ./kernel/n3_v1/wasmapi.cc ./kernel/n3_v1/dilithium/*.c ./kernel/n3_v1/dilithium/aes/*.c -o ./kernel/n3_v1/wasmFile/dilithium2-AES.js -D DILITHIUM_MODE=2 -D DILITHIUM_USE_AES",
+	"bulid-dilithium3-AES-n3-v1": "emcc ./kernel/n3_v1/wasmapi.cc ./kernel/n3_v1/dilithium/*.c ./kernel/n3_v1/dilithium/aes/*.c -o ./kernel/n3_v1/wasmFile/dilithium3-AES.js -D DILITHIUM_MODE=3 -D DILITHIUM_USE_AES",
+	"bulid-dilithium5-AES-n3-v1": "emcc ./kernel/n3_v1/wasmapi.cc ./kernel/n3_v1/dilithium/*.c ./kernel/n3_v1/dilithium/aes/*.c -o ./kernel/n3_v1/wasmFile/dilithium5-AES.js -D DILITHIUM_MODE=5 -D DILITHIUM_USE_AES",
+	"bulid-dilithium2-R-n3-v1": "emcc ./kernel/n3_v1/wasmapi.cc ./kernel/n3_v1/dilithium/*.c -o ./kernel/n3_v1/wasmFile/dilithium2-R.js -D DILITHIUM_MODE=2 -D DILITHIUM_RANDOMIZED_SIGNING=1",
+	"bulid-dilithium3-R-n3-v1": "emcc ./kernel/n3_v1/wasmapi.cc ./kernel/n3_v1/dilithium/*.c -o ./kernel/n3_v1/wasmFile/dilithium3-R.js -D DILITHIUM_MODE=3 -D DILITHIUM_RANDOMIZED_SIGNING=1",
+	"bulid-dilithium5-R-n3-v1": "emcc ./kernel/n3_v1/wasmapi.cc ./kernel/n3_v1/dilithium/*.c -o ./kernel/n3_v1/wasmFile/dilithium5-R.js -D DILITHIUM_MODE=5 -D DILITHIUM_RANDOMIZED_SIGNING=1",
+	"bulid-dilithium2-AES-R-n3-v1": "emcc ./kernel/n3_v1/wasmapi.cc ./kernel/n3_v1/dilithium/*.c ./kernel/n3_v1/dilithium/aes/*.c -o ./kernel/n3_v1/wasmFile/dilithium2-AES-R.js -D DILITHIUM_MODE=2 -D DILITHIUM_RANDOMIZED_SIGNING=1 -D DILITHIUM_USE_AES",
+	"bulid-dilithium3-AES-R-n3-v1": "emcc ./kernel/n3_v1/wasmapi.cc ./kernel/n3_v1/dilithium/*.c ./kernel/n3_v1/dilithium/aes/*.c -o ./kernel/n3_v1/wasmFile/dilithium3-AES-R.js -D DILITHIUM_MODE=3 -D DILITHIUM_RANDOMIZED_SIGNING=1 -D DILITHIUM_USE_AES",
+	"bulid-dilithium5-AES-R-n3-v1": "emcc ./kernel/n3_v1/wasmapi.cc ./kernel/n3_v1/dilithium/*.c ./kernel/n3_v1/dilithium/aes/*.c -o ./kernel/n3_v1/wasmFile/dilithium5-AES-R.js -D DILITHIUM_MODE=5 -D DILITHIUM_RANDOMIZED_SIGNING=1 -D DILITHIUM_USE_AES",
+	"bulid-all": "npm run bulid-dilithium2-n3-v1 & npm run bulid-dilithium3-n3-v1 & npm run bulid-dilithium5-n3-v1 & npm run bulid-dilithium2-AES-n3-v1 & npm run bulid-dilithium3-AES-n3-v1 & npm run bulid-dilithium5-AES-n3-v1 & npm run bulid-dilithium2-R-n3-v1 & npm run bulid-dilithium3-R-n3-v1 & npm run bulid-dilithium5-R-n3-v1 & npm run bulid-dilithium2-AES-R-n3-v1 & npm run bulid-dilithium3-AES-R-n3-v1 & npm run bulid-dilithium5-AES-R-n3-v1"
 },
   "repository": {
     "type": "git",
