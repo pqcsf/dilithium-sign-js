@@ -8,7 +8,20 @@ The main API consists of three entry points:
 	const { getKernel, getKernelNameList, util } = require('dilithium-sign');
 
 #### `getKernel(algid: string): Promise<Kernel>`
-Acquisition of core modules for algorithms
+Acquisition of core modules for algorithms, The available algorithms are:
+
+1. dilithium2_n3_v1'
+2. dilithium3_n3_v1'
+3. dilithium5_n3_v1'
+4. dilithium2_AES_n3_v1'
+5. dilithium3_AES_n3_v1'
+6. dilithium5_AES_n3_v1'
+7. dilithium2_R_n3_v1'
+8. dilithium3_R_n3_v1'
+9. dilithium5_R_n3_v1'
+10. dilithium2_AES_R_n3_v1'
+11. dilithium3_AES_R_n3_v1'
+12. dilithium5_AES_R_n3_v1
 
 #### `getKernelNameList(): string[]`
 Get a list of supported algorithm names

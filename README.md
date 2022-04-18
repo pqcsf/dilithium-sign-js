@@ -68,7 +68,7 @@ Seed length according to: Dilithium2.genkeySeedByte, different algorithms may ha
 	let sign = Dilithium2R.sign(text, keypair.sk, salt);
 
 Salt length according to: Dilithium2R.signSaltByte, different algorithms may have different lengths.
-**Note: Only Dilithium2R, Dilithium3R and Dilithium5R support salt setting**
+**Note: Only Dilithium2_R, Dilithium3_R, Dilithium5_R, Dilithium2_AES_R, Dilithium3_AES_R and Dilithium5_AES_R support salt setting**
 
 API
 ---
