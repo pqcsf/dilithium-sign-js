@@ -1498,7 +1498,7 @@ function isDataURI(filename) {
 
 // Indicates whether filename is delivered via file protocol (as opposed to http/https)
 function isFileURI(filename) {
-  return filename.startsWith('file://');
+  return !filename.startsWith('http://') && !filename.startsWith('https://');
 }
 
 // end include: URIUtils.js
